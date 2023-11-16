@@ -1,0 +1,191 @@
+import React from "react";
+import { useGLTF, Float, Center} from "@react-three/drei";
+
+const ComputerModel = (props) => {
+  const { nodes, materials } = useGLTF("/ComputerModel.glb");
+  
+ 
+  return (
+    <Float speed={1} rotationIntensity={1} floatIntensity={1} >
+    <Center>
+      <group  {...props} dispose={null}>
+        <spotLight
+          intensity={500}
+          decay={1.3}
+          color="#4C81F2"
+          position={[-10, 50, 0]}
+        />
+        <spotLight
+          intensity={500}
+          decay={1.3}
+          color="#9C2CD5"
+          position={[10, 50, 0]}
+        />
+        <ambientLight intensity={7}/>
+          <group  position={[0, 15.452, 0]} scale={[29.541, 0.336, 8.492]} rotation={[0.3,0,0]}>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008.geometry}
+            material={materials["DESK-0"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_1.geometry}
+            material={materials["CHAIR-0"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_2.geometry}
+            material={materials["WHEEL-0"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_3.geometry}
+            material={materials["WHEEL-CAP-0"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_4.geometry}
+            material={materials["WHEEL-NUT-0"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_5.geometry}
+            material={materials["CHAIR-LEGS-0"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_6.geometry}
+            material={materials["CHAIR-COVER-0"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_7.geometry}
+            material={materials["COMPUTER-0"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_8.geometry}
+            material={materials["1COMPUTER-0"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_9.geometry}
+            material={materials["SCREEN-0"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_10.geometry}
+            material={materials["3PIC-0.003"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_11.geometry}
+            material={materials["3PIC-0.001"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_12.geometry}
+            material={materials["3PIC-0"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_13.geometry}
+            material={materials["BASS-0"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_14.geometry}
+            material={materials["SPEAKER-0"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_15.geometry}
+            material={materials["2KB-0.001"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_16.geometry}
+            material={materials["1KB-BASE-0.001"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_17.geometry}
+            material={materials["1KEYS-0.001"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_18.geometry}
+            material={materials["MOUSE-0"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_19.geometry}
+            material={materials["MOUSEPAD-0"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_20.geometry}
+            material={materials["LAPTOP-0"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_21.geometry}
+            material={materials["1KB-BASE-0"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_22.geometry}
+            material={materials["1KEYS-0"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_23.geometry}
+            material={materials["SCREEN-0.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_24.geometry}
+            material={materials["SIGN-0"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Roundcube008_25.geometry}
+            material={materials["TAG-0"]}
+          />
+        </group>
+      </group>
+    </Center>
+    </Float >
+  );
+}
+
+useGLTF.preload("/ComputerModel.glb");
+
+export default ComputerModel
