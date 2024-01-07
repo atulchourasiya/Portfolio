@@ -20,7 +20,7 @@ const Star = (props) => {
    return (
       <group ref={starsRef}>
          <Points positions={new Float32Array(sphere)}
-            stride={3} frustumCulled={...props} >
+            stride={3} frustumCulled={props} >
             <PointMaterial
                map={starTexture}
                transparent={true}
