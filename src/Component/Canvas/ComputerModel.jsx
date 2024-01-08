@@ -10,18 +10,18 @@ const ComputerModel = (props) => {
       <group  {...props} dispose={null}>
         <spotLight
           intensity={500}
-          decay={1.5}
+          decay={1.3}
           color="#4C81F2"
           position={[-10, 50, 0]}
         />
         <spotLight
           intensity={500}
-          decay={1.5}
+          decay={1.3}
           color="#9C2CD5"
           position={[10, 50, 0]}
         />
         <ambientLight intensity={7}/>
-          <group  position={[0, 15.452, 0]} scale={[29.541, 0.336, 8.492]} rotation={[0,0,0]}>
+        <group  position={[0, 15.452, 0]} scale={[29.541, 0.336, 8.492]} rotation={[0,0,0]}>
           <mesh
             castShadow
             receiveShadow

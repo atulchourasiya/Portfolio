@@ -18,8 +18,8 @@ export default function BackgroundCanvas() {
             position={[0, 0, 120]}
          />
          {/* Lights */}
-         <color attach="background" args={['red']} />
-         
+         <color attach="background" args={['black']} />
+         <fog attach="fog" args={['black', 100, 200]} />
          <ComputerModel />
          <OrbitControls />
          {/* Camera movements */}
