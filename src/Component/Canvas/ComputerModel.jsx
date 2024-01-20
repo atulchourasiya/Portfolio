@@ -1,27 +1,35 @@
 import React from "react";
-import { useGLTF, Float, Center, MeshReflectorMaterial } from "@react-three/drei";
+import { useGLTF, Center, MeshReflectorMaterial  } from "@react-three/drei";
+import { useControls } from "leva";
 
 const ComputerModel = (props) => {
   const { nodes, materials } = useGLTF("/ComputerModel.glb");
-
+  const decay = useControls({
+    'decay': {
+      value: 1.25,
+      min: 0,
+      max: 10,
+      step: .1,
+    }
+  });
 
   return (
     <Center>
-      <group  {...props} dispose={null}>
+      <group position={[0, 3, 0]}  {...props} dispose={null} >
         <spotLight
-          intensity={500}
-          decay={1.3}
+          intensity={600}
+          decay={decay.decay}
           color="#4C81F2"
-          position={[-10, 50, 0]}
+          position={[0, 40, 0]}
         />
         <spotLight
-          intensity={500}
-          decay={1.3}
+          intensity={600}
+          decay={decay.value}
           color="#9C2CD5"
-          position={[10, 50, 0]}
+          position={[0, 40, 0]}
         />
-        <ambientLight intensity={7}/>
-        <group  position={[0, 15.452, 0]} scale={[29.541, 0.336, 8.492]} rotation={[0,0,0]}>
+        <ambientLight intensity={7} />
+        <group position={[0, 15.452, 0]} scale={[29.541, 0.336, 8.492]} rotation={[0, 0, 0]}>
           <mesh
             castShadow
             receiveShadow
@@ -179,21 +187,21 @@ const ComputerModel = (props) => {
             material={materials["TAG-0"]}
           />
         </group>
-          <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
-            <planeGeometry args={[500, 500]} />
-            <MeshReflectorMaterial
-              blur={[300, 30]}
-              resolution={2048}
-              mixBlur={.5}
-              mixStrength={10}
-              roughness={1.5}
-              depthScale={1.2}
-              minDepthThreshold={0.4}
-              maxDepthThreshold={1.4}
-              color="#202020"
-              metalness={0.8}
-            />
-          </mesh>
+        <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
+          <planeGeometry args={[200, 200]} />
+          <MeshReflectorMaterial
+            blur={[300, 30]}
+            resolution={2048}
+            mixBlur={0.4}
+            mixStrength={10}
+            roughness={1.5}
+            depthScale={1.2}
+            minDepthThreshold={0.4}
+            maxDepthThreshold={1.4}
+            color="#202020"
+            metalness={0.8}
+          />
+        </mesh>
       </group>
     </Center>
 
