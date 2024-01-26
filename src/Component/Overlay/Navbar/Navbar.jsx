@@ -12,7 +12,7 @@ const Navbar = () => {
             {
                NavbarData.map((data) => {
                   return <Link to={data.link} key={data.id}>
-                     <div className='flex flex-col justify-center items-center'>
+                     <div className='flex flex-col justify-center items-center hover:animate-pulse'>
                         <FontAwesomeIcon icon={data.icon} 
                         className=' text-black md:text-white'
                         style={{ fontSize: '1.3rem' }}

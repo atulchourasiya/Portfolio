@@ -12,7 +12,7 @@ import { ProjectData } from './ProjectData';
 
 const Project = () => {
   return (
-    <div className='flex justify-center items-center  h-full md:mx-16'>
+    <div className='flex justify-center items-center  h-full m-0 md:mx-16'>
       <Swiper
         effect={'coverflow'}
         centeredSlides={true}
@@ -35,7 +35,7 @@ const Project = () => {
       >
         {
           ProjectData.map((data) => { 
-            return <SwiperSlide key={data.id} className=' w-fit' >
+            return <SwiperSlide key={data.id} className='w-fit m-0' >
               <ProjectCard  title={data.title} image={data.image} desc={data.desc} liveLink={data.liveLink} githubLink={data.githubLink} />
             </SwiperSlide>
           })
