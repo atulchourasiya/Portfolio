@@ -1,28 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	--text-primary-color: rgb(255, 255, 255);
+	--text-secondary-color: rgba(255, 255, 255, 0.7);
+
+	--divider-color: rgba(255, 255, 255, 0.12);
+
+	--button-active-color: rgb(255, 255, 255);
+  --button-hover-color : rgba(255, 255, 255, 0.08);
+  --button-selected-color :rgba(255, 255, 255, 0.16);
+ 
+  --background-color: rgba(84, 84, 84, 0.414);
 }
 
 #root {
-  min-height: 100vh;
+	min-height: 100vh;
 }
 
-*{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	user-select: none;
 }
 
-.background-color{
-  background-color: #8484846d;
-}
 
-img{
-  opacity: 0.9;
+img {
+	opacity: 0.9;
 }

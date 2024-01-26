@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
-import { generateRectangularPositions } from '../Utility/generateRectangularPosition';
+import { useRectangularPositions } from '../Utility/useRectangularPosition';
 
 const ShootingStar = () => {
    const color = [
@@ -23,7 +23,7 @@ const Star = ({ starColor }) => {
    const starRef = useRef();
 
    useFrame(({ clock }) => {
-      const time = (clock.getElapsedTime() - previousTime.current + (5 + Math.random() * 5)) * 0.01;
+      const time = (clock.getElapsedTime() - previousTime.current + (5 + Math.random() * 5)) * 0.02;
       const frustum = new THREE.Frustum();
       const cameraViewProjectionMatrix = new THREE.Matrix4();
 
@@ -35,7 +35,7 @@ const Star = ({ starColor }) => {
       frustum.setFromProjectionMatrix(cameraViewProjectionMatrix);
 
       if (!frustum.containsPoint(starRef.current.position)) {
-         const [x, y, z] = generateRectangularPositions(width, height);
+         const [x, y, z] = useRectangularPositions(width, height);
          previousTime.current = clock.getElapsedTime();
          starRef.current.position.set(x, y, z);
       }
@@ -44,7 +44,7 @@ const Star = ({ starColor }) => {
    });
 
    useEffect(() => {
-      const [x, y, z] = generateRectangularPositions(width, height);
+      const [x, y, z] = useRectangularPositions(width, height);
       starRef.current.position.set(x, y, z);
    });
 

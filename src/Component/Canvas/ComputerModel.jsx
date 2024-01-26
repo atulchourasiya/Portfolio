@@ -1,30 +1,27 @@
-import React from "react";
-import { useGLTF, Center, MeshReflectorMaterial  } from "@react-three/drei";
-import { useControls } from "leva";
+import React, { useRef } from "react";
+import { useGLTF, Center, MeshReflectorMaterial } from "@react-three/drei";
+import { useFrame } from "react-three-fiber";
 
 const ComputerModel = (props) => {
   const { nodes, materials } = useGLTF("/ComputerModel.glb");
-  const decay = useControls({
-    'decay': {
-      value: 1.25,
-      min: 0,
-      max: 10,
-      step: .1,
-    }
+  const groupRef = useRef();
+  useFrame(() => {
+    const scalingFactor = Math.min(Math.max(window.innerWidth / 768 , .5),1);
+    groupRef.current.scale.set(scalingFactor, scalingFactor, scalingFactor);
   });
-
+ 
   return (
     <Center>
-      <group position={[0, 3, 0]}  {...props} dispose={null} >
+      <group ref={groupRef} position={[0, .5, 0]}  {...props} dispose={null} >
         <spotLight
-          intensity={600}
-          decay={decay.decay}
+          intensity={500}
+          decay={1.3}
           color="#4C81F2"
           position={[0, 40, 0]}
         />
         <spotLight
-          intensity={600}
-          decay={decay.value}
+          intensity={500}
+          decay={1.3}
           color="#9C2CD5"
           position={[0, 40, 0]}
         />

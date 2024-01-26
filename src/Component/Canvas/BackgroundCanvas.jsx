@@ -1,24 +1,16 @@
 import { Canvas, useFrame } from '@react-three/fiber';
-import { BakeShadows, OrbitControls, Stars } from '@react-three/drei';
+import { BakeShadows, OrbitControls, Stars, Preload, PerspectiveCamera } from '@react-three/drei';
 import ComputerModel from './ComputerModel';
-import { Preload, PerspectiveCamera } from '@react-three/drei';
-import { useControls, Leva } from "leva";
 import ShootingStar from './ShootingStar';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import BackgroundText from './BackgroundText';
 import { useState, useRef, useEffect } from 'react';
 import { easing } from 'maath';
-import { Perf } from 'r3f-perf';
-
 
 export default function BackgroundCanvas() {
-   const color = useControls({
-      backgroundColor: '#000',
-   });
+  
    return (
-      <Canvas className='!h-dvh' shadows dpr={[1, 1.5]} camera={{ position: [-1.5, 1, 5.5], fov: 45, near: 80, far: 100 }} eventSource={document.getElementById('root')} eventPrefix="client">
-         {/* <Perf position={"top-left"} /> */}
-         <Leva hidden />
+      <Canvas className='!h-dvh'  shadows dpr={[1, 1.5]} camera={{ position: [-1.5, 1, 5.5], fov: 45, near: 80, far: 100 }} eventSource={document.getElementById('root')} eventPrefix="client">
          <PerspectiveCamera
             makeDefault
             fov={30}
@@ -27,7 +19,7 @@ export default function BackgroundCanvas() {
             far={1000}
             position={[0, 0, 120]}
          />
-         <color attach="background" args={[color.backgroundColor]} />
+         <color attach="background" args={['#000']} />
          <fog attach="fog" args={['black', 140, 170]} />
          <CameraRig >
             <Stars />
@@ -77,9 +69,13 @@ const CameraRig = ({ children }) => {
    useEffect(() => {
       window.addEventListener('mouseout', handleMouseOut);
       window.addEventListener('mouseover', handleMouseOver);
+      window.addEventListener('touchend', handleMouseOut);
+      window.addEventListener('touchstart', handleMouseOver);
       return () => {
          window.removeEventListener('mouseout', handleMouseOut);
          window.removeEventListener('mouseover', handleMouseOver);
+         window.removeEventListener('touchend', handleMouseOut);
+         window.removeEventListener('touchstart', handleMouseOver);
       };
    }, [mouseOut]);
    return (
