@@ -7,6 +7,7 @@ import BackgroundText from './BackgroundText';
 import { useRef, useEffect, Suspense, useContext } from 'react';
 import { easing } from 'maath';
 import { LoadingContext } from '../Context/LoadingState';
+import LoadingScreen from '../Overlay/LoadingScreen/LoadingScreen';
 
 
 export default function BackgroundCanvas() {
@@ -24,7 +25,8 @@ export default function BackgroundCanvas() {
          <color attach="background" args={['#000']} />
          <fog attach="fog" args={['black', 140, 170]} />
          <Suspense fallback={null}>
-           {!loading && <CameraRig >
+           {loading ? <LoadingScreen /> :
+            <CameraRig >
                <Stars />
                <ShootingStar />
                <ComputerModel />
