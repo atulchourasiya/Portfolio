@@ -5,13 +5,10 @@ import { useRectangularPositions } from '../Utility/useRectangularPosition';
 
 const ShootingStar = () => {
    const color = [
-      [5, 5, 10],
-      [10, 5, 5],
-      [5, 10, 5],
-      [10, 5, 5],
-      [5, 10, 5],
-      [5, 5, 5],
-      [5, 5, 10],
+      [5, 5, 15],
+      [5, 5, 15],
+      [5, 5, 15],
+      [5, 5, 15],
    ];
    return color.map((color, index) => <Star key={index}
       starColor={color} />);

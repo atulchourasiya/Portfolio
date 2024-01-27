@@ -1,21 +1,18 @@
 import { Center, MeshReflectorMaterial, Text3D } from "@react-three/drei";
-import { useThree } from '@react-three/fiber';
 import { HeadingContext } from "../Context/HeadingState.jsx";
 import { useContext  } from "react";
 
 
 const BackgroundText = () => {
-   const { viewport  } = useThree();
-   const { height } = viewport;
    const { heading } = useContext(HeadingContext);
-   const scalingFactor = Math.min(Math.max(window.innerWidth / 768, .4), 1);
-  
+   const scalingFactor = Math.min(Math.max(window.innerWidth / 1280, .4), 1);
    return (
-      <Center position={[0,window.innerWidth > 768 ? 20 :15,-30]}>
+      <Center position={[0,window.innerWidth > 768 ? 20 :14,-30]}>
          <Text3D
-            size={15}
+            size={13}
             letterSpacing={.5}
-            scale={window.innerWidth > 768 ? 1 : .3}
+            antialias={true}
+            scale={scalingFactor}
             font={'./Poppins Black_Regular.json'}>
             {heading}
             <MeshReflectorMaterial

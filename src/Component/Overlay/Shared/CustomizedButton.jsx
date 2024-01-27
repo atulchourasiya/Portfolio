@@ -3,9 +3,10 @@ import Button from '@mui/material-next/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
-const CustomizedButton = ({ icon }) => {
+const CustomizedButton = ({text, icon }) => {
 	return (
 			<Button size='small' variant='filledTonal'  color='secondary'>
+				{text}
 				<FontAwesomeIcon size='lg' icon={icon} />
 			</Button>
 	);

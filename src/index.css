@@ -25,6 +25,7 @@
     color: rgb(255, 255, 255)!important;
 	 text-shadow: 2px 2px 4px #000000;
 	 position: relative;
+	 top: 5px;
 }
 
 .project-card-image {

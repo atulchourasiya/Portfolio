@@ -1,14 +1,18 @@
+import { useContext } from 'react';
 import BackgroundCanvas from './Canvas/BackgroundCanvas';
-import { HeadingState } from './Context/HeadingState.jsx';
+import {  HeadingState } from './Context/HeadingState.jsx';
+import {  LoadingState } from './Context/LoadingState';
 import Overlay from './Overlay/Overlay';
 
 function App() {
   return <>
     <HeadingState >
-      <div className='relative'>
-        <BackgroundCanvas />
-        <Overlay />
-      </div>
+      <LoadingState>
+        <div className='relative'>
+          <BackgroundCanvas />
+          <Overlay />
+        </div>
+      </LoadingState>
     </HeadingState>
   </>;
 }
