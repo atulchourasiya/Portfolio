@@ -51,18 +51,11 @@ function CameraRig({ children }) {
    const pointer = useRef({ x: 0, y: 0 });
 
    useEffect(() => {
-      if (window.matchMedia('(pointer:coarse)').matches) {
-         document.addEventListener('touchmove', handleMouseMove);
-         document.addEventListener('touchcancel', handleMouseOut);
-      }
-      else if (window.matchMedia('(pointer:fine)').matches) {
-         document.addEventListener('mousemove', handleMouseMove);
-         document.addEventListener('mouseout', handleMouseOut);
-      }
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseout', handleMouseOut);
       return () => {
          document.removeEventListener('mousemove', handleMouseMove);
          document.removeEventListener('mouseout', handleMouseOut);
-
       };
    }, []);
 
