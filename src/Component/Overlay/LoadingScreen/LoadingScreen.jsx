@@ -6,9 +6,13 @@ import { Typography } from '@mui/material';
 import Button from '../Shared/CustomizedButton';
 import { LoadingContext } from '../../Context/LoadingState';
 import { useContext } from 'react';
+const audio = new Audio('/catbgaudio.mp3');
+import { useNavigate } from 'react-router-dom';
+
 const LoadingScreen = () => {
    const { progress } = useProgress();
    const { setLoading } = useContext(LoadingContext);
+   const navigate = useNavigate();
 
    const scene = useRef();
 
@@ -52,7 +56,7 @@ const LoadingScreen = () => {
          <div ref={scene} className="h-full bg-black relative z-10"> </div>
          <div className='absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-10'>
             <Typography variant='h6' className='text-white text-center flex'>EXPERIENCE THE JOURNEY</Typography>
-            <Box sx={{ width: '100%', marginTop: '1rem' }}>
+            <Box sx={{ width: '50%',  margin:'auto' ,marginTop: '1rem' }}>
                {progress != 100 ? <>
                   <Typography variant='p' className='text-white text-xs text-center flex w-full'>{Math.round(progress)}%
                   </Typography>
@@ -65,6 +69,9 @@ const LoadingScreen = () => {
                   <div className='flex justify-center' onClick={() => {
                      goFullScreen();
                      setLoading(false);
+                     audio.volume = 0.1;
+                     audio.play();
+                     navigate('/');
                   }}>
                      <Button text={'Enter'} icon={null}></Button>
                   </div>

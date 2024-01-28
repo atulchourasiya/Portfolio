@@ -39,7 +39,25 @@
 	background-color: aliceblue;
 	border-radius: 50%;
 }
-
+.nav-icon{
+	transition: transform 0.2s ease-in-out;
+}
+.nav-icon:hover{
+	transform: scale(1.2);
+}
+.active{
+	position: relative;
+}
+.active::before{
+	position: absolute;
+	content: '';
+	left: 50%;
+	transform: translateX(-50%);
+	width: 90%;
+	height: 2px;
+	background-color: #6ff5ff;
+	bottom: -5px;
+}
 @keyframes blink {
 	0% {
 		opacity: 0;
