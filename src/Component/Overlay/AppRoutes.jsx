@@ -9,15 +9,15 @@ import LoadingScreen from './LoadingScreen/LoadingScreen';
 const AppRoutes = () => {
    const { loading } = useContext(LoadingContext);
    return (
-      loading ? <LoadingScreen />:
-         <BrowserRouter>
-            <Routes>
-               <Route path='/project' exact element={<Project />} />
-               <Route path='/contact' exact element={<Contact />} />
-            </Routes>
-            <Navbar />
-         </BrowserRouter>
+      <BrowserRouter>
+         <Routes>
+            <Route path='/project' exact element={<Project />} />
+            <Route path='/contact' exact element={<Contact />} />
+         </Routes>
+         {loading && <LoadingScreen />}
+         <Navbar />
+      </BrowserRouter>
    );
 };
 
-export default AppRoutes;
+export default AppRoutes; 

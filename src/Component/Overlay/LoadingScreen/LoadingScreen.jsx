@@ -28,8 +28,8 @@ const LoadingScreen = () => {
    const generateStars = () => {
       const star = document.createElement('span');
       star.classList.add('star');
-      star.style.top = `calc(${Math.random() * 100}% - 2px)`;
-      star.style.left = `calc(${Math.random() * 100}% - 2px)`;
+      star.style.top = `calc(${Math.random() * 100}% - 20px)`;
+      star.style.left = `calc(${Math.random() * 100}% - 20px)`;
       star.style.width = Math.random() * 2 + 1 + 'px';
       star.style.height = star.style.width;
       star.style.animationDuration = Math.random() * 2 + 1 + 's';
@@ -49,8 +49,8 @@ const LoadingScreen = () => {
 
    return (
       <>
-         <div ref={scene} className="h-full bg-black"> </div>
-         <div className='absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]'>
+         <div ref={scene} className="h-full bg-black relative z-10"> </div>
+         <div className='absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-10'>
             <Typography variant='h6' className='text-white text-center flex'>EXPERIENCE THE JOURNEY</Typography>
             <Box sx={{ width: '100%', marginTop: '1rem' }}>
                {progress != 100 ? <>
