@@ -85,9 +85,9 @@ function CameraRig({ children }) {
          delta
       );
       if (window.matchMedia('(pointer: coarse)').matches && pointer.current.x > 0) {
-         pointer.current.x -= .004;
+         pointer.current.x -= .01;
       } else if (window.matchMedia('(pointer: coarse)').matches && pointer.current.x < 0) {
-         pointer.current.x += .004;
+         pointer.current.x += .01;
       }
    });
 
