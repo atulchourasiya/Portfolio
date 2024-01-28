@@ -21,6 +21,6 @@ export const  ProjectData = [
       desc : "ChourasiyaHotel is a restaurant website. It is a static website. It is made using HTML, CSS and JavaScript. it has a functionality to send email using emailjs. It is a responsive website. It is hosted on github pages.",
       image : "/chourasiyahotel.png",
       githubLink: "https://github.com/atulchourasiya/WebPage/tree/main/IndianRestaurant",
-      liveLink: "https://devatul.me/WebPage/IndianRestaurant/"
+      liveLink: "https://atulchourasiya.github.io/WebPage/IndianRestaurant/"
    },
 ]
