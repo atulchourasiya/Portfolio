@@ -25,30 +25,31 @@ const LoadingScreen = () => {
       }
    };
 
-   useEffect(() => {
-      const stars = document.querySelectorAll('span');
+   const generateStars = () => {
+      const star = document.createElement('span');
+      star.classList.add('star');
+      star.style.top = `calc(${Math.random() * 100}% - 2px)`;
+      star.style.left = `calc(${Math.random() * 100}% - 2px)`;
+      star.style.width = Math.random() * 2 + 1 + 'px';
+      star.style.height = star.style.width;
+      star.style.animationDuration = Math.random() * 2 + 1 + 's';
+      star.style.animationDelay = Math.random() * 2 + 1 + 's';
+      star.style.animationTimingFunction = 'ease-in-out';
+      star.style.animationIterationCount = 'infinite';
+      star.style.animationName = 'blink';
+      scene.current.appendChild(star);
+   };
 
-      stars.forEach(star => {
-         let x = `${Math.random() * 200}vmax`;
-         let y = `${Math.random() * 100}vh`;
-         let z = `${Math.random() * 200 - 100}vmin`;
-         let rx = `${Math.random() * 360}deg`;
-         star.style.setProperty('--x', x);
-         star.style.setProperty('--y', y);
-         star.style.setProperty('--z', z);
-         star.style.setProperty('--rx', rx);
-         let delay = `${Math.random() * 1.5}s`;
-         star.style.animationDelay = delay;
-      });
+   useEffect(() => {
+
+      for (let i = 0; i < 1000; i++) {
+         generateStars();
+      }
    }, []);
 
    return (
       <>
-         <div ref={scene} className="scene bg-black">
-            {
-               Array(50).fill('').map((_, i) => <span></span>)
-            }
-         </div>
+         <div ref={scene} className="h-full bg-black"> </div>
          <div className='absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]'>
             <Typography variant='h6' className='text-white text-center flex'>EXPERIENCE THE JOURNEY</Typography>
             <Box sx={{ width: '100%', marginTop: '1rem' }}>
@@ -65,7 +66,7 @@ const LoadingScreen = () => {
                      goFullScreen();
                      setLoading(false);
                   }}>
-                     <Button text={'Enter'}></Button>
+                     <Button text={'Enter'} icon={null}></Button>
                   </div>
                }
             </Box>
