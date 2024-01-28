@@ -9,7 +9,7 @@ import LoadingScreen from './LoadingScreen/LoadingScreen';
 const AppRoutes = () => {
    const { loading } = useContext(LoadingContext);
    return (
-      loading ? '' :
+      loading ? <LoadingScreen />:
          <BrowserRouter>
             <Routes>
                <Route path='/project' exact element={<Project />} />

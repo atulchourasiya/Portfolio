@@ -1,17 +1,13 @@
 import { Canvas, useFrame } from '@react-three/fiber';
-import { BakeShadows, OrbitControls, Stars, Preload, PerspectiveCamera, Loader } from '@react-three/drei';
+import { BakeShadows, OrbitControls, Stars, Preload, PerspectiveCamera } from '@react-three/drei';
 import ComputerModel from './ComputerModel';
 import ShootingStar from './ShootingStar';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import BackgroundText from './BackgroundText';
-import { useRef, useEffect, Suspense, useContext } from 'react';
+import { useRef, useEffect, Suspense } from 'react';
 import { easing } from 'maath';
-import { LoadingContext } from '../Context/LoadingState';
-import LoadingScreen from '../Overlay/LoadingScreen/LoadingScreen';
-
 
 export default function BackgroundCanvas() {
-   const {loading} = useContext(LoadingContext);
    return (
       <Canvas className='!h-dvh' shadows dpr={[1, 1.5]} camera={{ position: [-1.5, 1, 5.5], fov: 45, near: 80, far: 100 }} eventSource={document.getElementById('root')} eventPrefix="client">
          <PerspectiveCamera
@@ -25,13 +21,12 @@ export default function BackgroundCanvas() {
          <color attach="background" args={['#000']} />
          <fog attach="fog" args={['black', 140, 170]} />
          <Suspense fallback={null}>
-           {loading ? <LoadingScreen /> :
             <CameraRig >
                <Stars />
                <ShootingStar />
                <ComputerModel />
                <BackgroundText />
-            </CameraRig>}
+            </CameraRig>
          </Suspense>
          <OrbitControls
             enableZoom={false}
