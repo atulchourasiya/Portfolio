@@ -70,6 +70,7 @@ const LoadingScreen = () => {
                      goFullScreen();
                      setLoading(false);
                      audio.volume = 0.1;
+                     audio.loop = true;
                      audio.play();
                      navigate('/');
                   }}>

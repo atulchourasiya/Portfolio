@@ -84,6 +84,11 @@ function CameraRig({ children }) {
          0.85,
          delta
       );
+      if (window.matchMedia('(pointer: coarse)').matches && pointer.current.x > 0) {
+         pointer.current.x -= .004;
+      } else if (window.matchMedia('(pointer: coarse)').matches && pointer.current.x < 0) {
+         pointer.current.x += .004;
+      }
    });
 
    return <group ref={groupRef}>{children}</group>;
