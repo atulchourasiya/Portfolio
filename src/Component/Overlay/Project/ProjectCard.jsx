@@ -7,14 +7,17 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Button from '../Shared/CustomizedButton';
+
 const ProjectCard = ({ title, desc, image, githubLink, liveLink }) => {
 	return (
 		<div className="md:p-2">
 			<Card className='w-full max-w-[20rem] md:max-w-none  md:w-[22rem]' sx={{ opacity: '.9', borderRadius: '1.5rem' }}>
-				<CardMedia className='h-[8rem] md:h-[12rem] project-card-image' sx={{ objectFit: 'contain' }} image={image} />
+				<CardMedia className='h-[8rem] md:h-[12rem] opaque-image' sx={{ objectFit: 'contain' }} image={image} />
 				<CardContent>
 					<Typography gutterBottom variant='h5' component='div'>
-						{title}
+						<p className='font-poppins'>
+							{title}
+						</p>
 					</Typography>
 					<Typography variant='body2' color='text.secondary'>
 						{desc}

@@ -20,7 +20,7 @@ const Star = ({ starColor }) => {
    const starRef = useRef();
 
    useFrame(({ clock }) => {
-      const time = (clock.getElapsedTime() - previousTime.current + (5 + Math.random() * 5)) * 0.02;
+      const time = (clock.getElapsedTime() - previousTime.current + (5 + Math.random() * 5)) * 0.01;
       const frustum = new THREE.Frustum();
       const cameraViewProjectionMatrix = new THREE.Matrix4();
 

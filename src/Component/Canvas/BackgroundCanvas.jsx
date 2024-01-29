@@ -6,6 +6,8 @@ import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import BackgroundText from './BackgroundText';
 import { useRef, useEffect, Suspense } from 'react';
 import { easing } from 'maath';
+import { useThree } from 'react-three-fiber';
+
 
 export default function BackgroundCanvas() {
    return (
@@ -49,6 +51,8 @@ export default function BackgroundCanvas() {
 function CameraRig({ children }) {
    const groupRef = useRef();
    const pointer = useRef({ x: 0, y: 0 });
+   const { camera } = useThree();
+
 
    useEffect(() => {
       document.addEventListener('mousemove', handleMouseMove);
@@ -81,14 +85,15 @@ function CameraRig({ children }) {
       easing.dampE(
          groupRef.current.rotation,
          [0, pointer.current.x / 4, 0],
-         0.85,
+         0.35,
          delta
       );
       if (window.matchMedia('(pointer: coarse)').matches && pointer.current.x > 0) {
-         pointer.current.x -= .01;
+         pointer.current.x -= .05;
       } else if (window.matchMedia('(pointer: coarse)').matches && pointer.current.x < 0) {
-         pointer.current.x += .01;
+         pointer.current.x += .05;
       }
+      camera.lookAt(0, 0, 0);
    });
 
    return <group ref={groupRef}>{children}</group>;

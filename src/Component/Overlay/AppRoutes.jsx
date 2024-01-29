@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import Project from './Project/Project';
 import Contact from './Contact/Contact';
-import Home from './Home/Home';
 import Navbar from './Navbar/Navbar';
+import About from './About/About';
 import { LoadingContext } from '../Context/LoadingState';
 import LoadingScreen from './LoadingScreen/LoadingScreen';
 
@@ -15,8 +15,8 @@ const AppRoutes = () => {
             loading ?
                <LoadingScreen />
                : <Routes>
-
-                  <Route path='/' exact element={<Home />} />
+                  <Route path='/' exact  />
+                  <Route path='/about' exact element={<About />} />
                   <Route path='/project' exact element={<Project />} />
                   <Route path='/contact' exact element={<Contact />} />
                </Routes>

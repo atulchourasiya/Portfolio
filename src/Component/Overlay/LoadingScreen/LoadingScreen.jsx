@@ -8,6 +8,7 @@ import { LoadingContext } from '../../Context/LoadingState';
 import { useContext } from 'react';
 const audio = new Audio('/catbgaudio.mp3');
 import { useNavigate } from 'react-router-dom';
+import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 
 const LoadingScreen = () => {
    const { progress } = useProgress();
@@ -71,10 +72,10 @@ const LoadingScreen = () => {
                      setLoading(false);
                      audio.volume = 0.1;
                      audio.loop = true;
-                     audio.play();
+                     // audio.play();
                      navigate('/');
                   }}>
-                     <Button text={'Enter'} icon={null}></Button>
+                     <Button icon={faDoorOpen}></Button>
                   </div>
                }
             </Box>

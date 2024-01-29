@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -30,25 +31,32 @@
 	top: 5px;
 }
 
-.project-card-image {
+.font-poppins {
+	font-family: 'Poppins', sans-serif;
+}
+
+.font-lato {
+	font-family: 'Lato', sans-serif;
+}
+.opaque-image {
 	opacity: 0.9;
 }
 
-.star{
+.star {
 	position: absolute;
 	background-color: aliceblue;
 	border-radius: 50%;
 }
-.nav-icon{
+.nav-icon {
 	transition: transform 0.2s ease-in-out;
 }
-.nav-icon:hover{
+.nav-icon:hover {
 	transform: scale(1.2);
 }
-.active{
+.active {
 	position: relative;
 }
-.active::before{
+.active::before {
 	position: absolute;
 	content: '';
 	left: 50%;

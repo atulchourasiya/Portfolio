@@ -22,6 +22,7 @@
     "@mui/material-next": "^6.0.0-alpha.119",
     "@react-three/drei": "^9.93.0",
     "@react-three/postprocessing": "^2.15.11",
+    "framer-motion": "^11.0.3",
     "maath": "^0.10.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
