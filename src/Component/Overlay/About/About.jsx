@@ -23,7 +23,7 @@ const About = () => {
                      className='opaque-image bottom-1 border-white  rounded-full h-24 md:h-36 aspect-auto  m-2 '
                      onLoad={handleImageLoad}
                   />
-                  {!isLoaded && <Skeleton variant="circular" className='!w-24 md:!w-36 !h-24 md:!h-36' />}
+                  {!isLoaded && <Skeleton variant="circular" className='!hidden md:!block !w-24 md:!w-36 !h-24 md:!h-36' />}
                   <p className=' font-bold tex text-center text-md opaque-image'>
                      ATUL CHOURASIYA
                   </p>
