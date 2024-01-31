@@ -75,7 +75,7 @@ const LoadingScreen = () => {
                      setLoading(false);
                      audio.volume = 0.1;
                      audio.loop = true;
-                     // audio.play();
+                     audio.play();
                      navigate('/');
                   }}>
                      <Button icon={faDoorOpen} text={'ENTER'}></Button>
