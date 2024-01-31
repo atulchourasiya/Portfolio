@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -31,9 +30,6 @@
 	top: 5px;
 }
 
-.font-poppins {
-	font-family: 'Poppins', sans-serif;
-}
 
 .font-lato {
 	font-family: 'Lato', sans-serif;

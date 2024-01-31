@@ -14,12 +14,10 @@ const ProjectCard = ({ title, desc, image, githubLink, liveLink }) => {
 			<Card className='w-full max-w-[20rem] md:max-w-none  md:w-[22rem]' sx={{ opacity: '.9', borderRadius: '1.5rem' }}>
 				<CardMedia className='h-[8rem] md:h-[12rem] opaque-image' sx={{ objectFit: 'contain' }} image={image} />
 				<CardContent>
-					<Typography gutterBottom variant='h5' component='div'>
-						<p className='font-poppins'>
-							{title}
-						</p>
+					<Typography gutterBottom variant='h5'  sx={{fontFamily :'lato'}} component='div'>
+						{title}
 					</Typography>
-					<Typography variant='body2' color='text.secondary'>
+					<Typography variant='body2' color='text.secondary' sx={{ fontFamily: 'lato' }} >
 						{desc}
 					</Typography>
 				</CardContent>

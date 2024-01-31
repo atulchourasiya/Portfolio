@@ -9,6 +9,7 @@ import { useContext } from 'react';
 const audio = new Audio('/catbgaudio.mp3');
 import { useNavigate } from 'react-router-dom';
 import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
+import AnimatedText from '../../Animation/AnimatedText';
 
 const LoadingScreen = () => {
    const { progress } = useProgress();
@@ -56,8 +57,10 @@ const LoadingScreen = () => {
       <>
          <div ref={scene} className="h-full bg-black relative z-10"> </div>
          <div className='absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-10'>
-            <Typography variant='h6' className='text-white text-center flex'>EXPERIENCE THE JOURNEY</Typography>
-            <Box sx={{ width: '50%',  margin:'auto' ,marginTop: '1rem' }}>
+            <Typography variant='h6' className='text-white text-center flex'>
+               <AnimatedText text={'EXPERIENCE THE JOURNEY'} />
+            </Typography>
+            <Box sx={{ width: '50%', margin: 'auto', marginTop: '1rem' }}>
                {progress != 100 ? <>
                   <Typography variant='p' className='text-white text-xs text-center flex w-full'>{Math.round(progress)}%
                   </Typography>
@@ -75,7 +78,7 @@ const LoadingScreen = () => {
                      // audio.play();
                      navigate('/');
                   }}>
-                     <Button icon={faDoorOpen}></Button>
+                     <Button icon={faDoorOpen} text={'ENTER'}></Button>
                   </div>
                }
             </Box>

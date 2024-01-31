@@ -8,7 +8,7 @@ const CustomizedButton = ({ text, icon }) => {
 		<AnimatedHover>
 			<AnimatedOnclick>
 				<Button size='small' variant='filledTonal' color='secondary'>
-					{text && <span className='font-lato font-bold me-2'>{text}</span>}
+					{text && <span className='font-lato me-2'>{text}</span>}
 					{
 						icon && <FontAwesomeIcon  size='lg' icon={icon} />
 					}
