@@ -38,7 +38,7 @@ const Project = () => {
         >
           {
             ProjectData.map((data) => {
-              return <SwiperSlide key={data.id} className='w-fit m-0' >
+              return <SwiperSlide key={data.id} className='w-fit ' >
                 <ProjectCard title={data.title} image={data.image} desc={data.desc} liveLink={data.liveLink} githubLink={data.githubLink} />
               </SwiperSlide>;
             })

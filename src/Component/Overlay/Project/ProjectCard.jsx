@@ -15,8 +15,7 @@ const ProjectCard = ({ title, desc, image, githubLink, liveLink }) => {
 		setIsLoaded(true);
 	};
 	return (
-		<div className="md:p-2">
-			<Card className='w-[18rem] max-w-[20rem] md:max-w-none  md:w-[22rem]' sx={{ opacity: '.9', borderRadius: '1.5rem' }}>
+			<Card className='w-[100vw] max-w-[20rem] md:max-w-none  md:w-[22rem] p-2' sx={{ opacity: '.9', borderRadius: '1.5rem' }}>
 				<img className=' h-[8rem] md:h-[12rem] w-full opaque-image' style={{ objectFit: 'cover' }} src={image}  onLoad={handleImageLoad} />
 				{!isLoaded && <Skeleton variant="rectangular" className=' !hidden md:!block !h-[8rem] md:!h-[12rem]' />}
 				<CardContent>
@@ -36,7 +35,6 @@ const ProjectCard = ({ title, desc, image, githubLink, liveLink }) => {
 					</a>
 				</CardActions>
 			</Card>
-		</div>
 	);
 };
 
