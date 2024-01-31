@@ -12,7 +12,7 @@ const Navbar = () => {
       <div className="w-full flex justify-center" style={{
          boxShadow: 'rgba(17, 12, 46, 0.15) 0px 48px 100px 0px'
       }}>
-         <div className='flex flex-row md:flex-col absolute bottom-2 md:top-1/2 md:right-0 md:-translate-y-1/2  md:rounded-3xl justify-around py-4 px-4 w-full md:w-max bg-white md:bg-transparent' >
+         <div className='flex flex-row md:flex-col absolute bottom-0 md:top-1/2 md:right-0 md:-translate-y-1/2  md:rounded-3xl justify-around py-4 px-4 w-full md:w-max bg-white md:bg-transparent' >
             {
                NavbarData.map((data) => {
                   return <NavLink to={data.link} key={data.id}>

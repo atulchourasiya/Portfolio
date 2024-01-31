@@ -8,7 +8,7 @@ import AnimatedFadeIn from '../../Animation/AnimatedFadeIn';
 const Contact = () => {
   return (
     <AnimatedFadeIn>
-      <div className='flex justify-center items-center h-full px-4'>
+      <div className='flex justify-center items-center h-[calc(100%-52.7px)] md:h-full px-4'>
         <Box
           component="form"
           autoComplete="off"

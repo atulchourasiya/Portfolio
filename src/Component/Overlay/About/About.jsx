@@ -1,45 +1,65 @@
 import React from 'react';
-import Box from '@mui/material/Box';
 import Button from '../Shared/CustomizedButton';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import AnimatedFadeIn from '../../Animation/AnimatedFadeIn';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { Skeleton } from '@mui/material';
 
 const About = () => {
+   const resume = '/me.jpeg'
+   const [isLoaded, setIsLoaded] = React.useState(false);
+   const handleImageLoad = () => {
+      setIsLoaded(true);
+   };
    return (
-     <AnimatedFadeIn>
-       <div className='flex justify-center items-center h-full px-4'>
-         <div className=' flex flex-col md:flex-row bg-white bg-opacity-90  rounded-3xl p-4 w-1/2'>
-           <div className='flex  items-center flex-col bg-yellow-50  p-4 rounded-2xl shadow-2xl'>
-             <img
-               src='data:image/png;base64,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'
-               alt='Picture of Atul Chourasiya'
-               className='opaque-image bottom-1 border-white  rounded-full h-40 aspect-auto  m-4'
-             />
-             <p className=' font-bold tex text-center text-md opaque-image'>
-               ATUL CHOURASIYA
-             </p>
-             <span className=' w-24  mt-3 mb-2 h-[3px] bg-blue-300'></span>
-             <p className=' text-nowrap font-extralight mb-4 text-center tracking-[2px] font-lato text-xs'>
-               FULL STACK DEVELOPER
-             </p>
-           </div>
-           <div className='p-4 flex justify-around flex-col'>
-             <p className=' font-bold text-3xl'>MY STORY</p>
-             <p className='font-lato text-justify font-medium'>
-               I'm Atul Chourasiya, a full-stack developer known for my creative
-               touch. I thrive on turning ideas into code, making the complex
-               seem simple. Let's keep it straightforward and build something
-               amazing together!
-             </p>
-             <div className='flex justify-end'>
-               <a download={true} href='/me.jpeg'>
-                 <Button text={"Resume"} icon={faDownload} />
-               </a>
-             </div>
-           </div>
+      <AnimatedFadeIn>
+         <div className='flex justify-center items-center h-[calc(100%-52.7px)] md:h-full px-4'>
+            <div className=' flex flex-col md:flex-row bg-white bg-opacity-90  rounded-3xl p-3 md:p-4 w-full max-w-[19rem] md: md:w-2/3 md:max-w-[40rem]'>
+               <div className='flex  items-center flex-col bg-yellow-50 h-max p-2 md:p-4 rounded-2xl shadow-2xl'>
+                  <img
+                     src='/me.jpeg'
+                     alt='Picture of Atul Chourasiya'
+                     className='opaque-image bottom-1 border-white  rounded-full h-24 md:h-36 aspect-auto  m-2 '
+                     onLoad={handleImageLoad}
+                  />
+                  {!isLoaded && <Skeleton variant="circular" className='!w-24 md:!w-36 !h-24 md:!h-36' />}
+                  <p className=' font-bold tex text-center text-md opaque-image'>
+                     ATUL CHOURASIYA
+                  </p>
+                  <span className=' w-24 mt-2  md:mt-3 mb-2 h-[3px] bg-blue-300'></span>
+                  <p className=' text-nowrap font-extralight mb-2 md:mb-4 text-center tracking-[2px] font-lato text-xs'>
+                     FULL STACK DEVELOPER
+                  </p>
+                  <div className="flex">
+                     <a href='https://github.com/atulchourasiya' className='mx-2' target='_blank'>
+                        <FontAwesomeIcon icon={faGithub} className='text-base text-black' />
+                     </a>
+                     <a href='https://www.linkedin.com/in/atul-chourasiya-7414ba215/' className='mx-2' target='_blank'>
+                        <FontAwesomeIcon icon={faLinkedin} className='text-base text-black' />
+                     </a>
+                     <a href={resume} download className='mx-2' target='_blank'>
+                        <FontAwesomeIcon icon={faDownload} className='text-base text-black' />
+                     </a>
+                  </div>
+               </div>
+               <div className='p-2 md:p-4 flex justify-around flex-col'>
+                  <p className=' font-bold text-lg md:text-3xl hidden md:block '>MY STORY</p>
+                  <p className='font-lato text-sm md:text-lg text-justify font-medium'>
+                     I'm Atul Chourasiya, a full-stack developer known for my creative
+                     touch. I thrive on turning ideas into code, making the complex
+                     seem simple. Let's keep it straightforward and build something
+                     amazing together!
+                  </p>
+                  <div className='flex justify-end'>
+                     <a download={true} href={resume}>
+                        <Button text={"Resume"} icon={faDownload} />
+                     </a>
+                  </div>
+               </div>
+            </div>
          </div>
-       </div>
-     </AnimatedFadeIn>
+      </AnimatedFadeIn>
    );
 };
 

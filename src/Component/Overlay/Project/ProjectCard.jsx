@@ -7,14 +7,20 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Button from '../Shared/CustomizedButton';
+import Skeleton from '@mui/material/Skeleton';
 
 const ProjectCard = ({ title, desc, image, githubLink, liveLink }) => {
+	const [isLoaded, setIsLoaded] = React.useState(false);
+	const handleImageLoad = () => {
+		setIsLoaded(true);
+	};
 	return (
 		<div className="md:p-2">
-			<Card className='w-full max-w-[20rem] md:max-w-none  md:w-[22rem]' sx={{ opacity: '.9', borderRadius: '1.5rem' }}>
-				<CardMedia className='h-[8rem] md:h-[12rem] opaque-image' sx={{ objectFit: 'contain' }} image={image} />
+			<Card className='w-[18rem] max-w-[20rem] md:max-w-none  md:w-[22rem]' sx={{ opacity: '.9', borderRadius: '1.5rem' }}>
+				<img className=' h-[8rem] md:h-[12rem] w-full opaque-image' style={{ objectFit: 'cover' }} src={image}  onLoad={handleImageLoad} />
+				{!isLoaded && <Skeleton variant="rectangular" className='!h-[8rem] md:!h-[12rem]' />}
 				<CardContent>
-					<Typography gutterBottom variant='h5'  sx={{fontFamily :'lato'}} component='div'>
+					<Typography gutterBottom variant='h5' sx={{ fontFamily: 'lato' }} component='div'>
 						{title}
 					</Typography>
 					<Typography variant='body2' color='text.secondary' sx={{ fontFamily: 'lato' }} >

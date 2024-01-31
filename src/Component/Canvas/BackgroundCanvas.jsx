@@ -24,10 +24,10 @@ export default function BackgroundCanvas() {
          <fog attach="fog" args={['black', 140, 170]} />
          <Suspense fallback={null}>
             <CameraRig >
-               {/* <Stars />
+               <Stars />
                <ShootingStar />
                <ComputerModel />
-               <BackgroundText /> */}
+               <BackgroundText />
             </CameraRig>
          </Suspense>
          <OrbitControls

@@ -14,7 +14,7 @@ const audio = new Audio('/soundeffect.mp3');
 const Project = () => {
   return (
     <AnimatedFadeIn>
-      <div className='flex justify-center items-center  h-full m-0 md:mx-16'>
+      <div className='flex justify-center items-center  h-[calc(100%-52.7px)] md:h-full  m-0 md:mx-16'>
         <Swiper
           effect={'coverflow'}
           centeredSlides={true}
