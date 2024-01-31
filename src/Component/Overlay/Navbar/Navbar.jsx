@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink } from 'react-router-dom';
 import { HeadingContext } from '../../Context/HeadingState';
 import { useContext } from 'react';
-import {motion} from 'framer-motion';
 const audio = new Audio('/soundeffect.mp3');
 const Navbar = () => {
    const { setHeading } = useContext(HeadingContext);
@@ -16,15 +15,15 @@ const Navbar = () => {
             {
                NavbarData.map((data) => {
                   return <NavLink to={data.link} key={data.id}>
-                     <motion.div whileHover={{scale :1.2}} transition={{duration : 0.1 }} className='flex flex-col justify-center items-center nav-icon' onClick={() => {
+                     <div className='flex flex-col justify-center items-center nav-icon' onClick={() => {
                         setHeading(data.heading);
                         audio.play();
                      }}>
                         <FontAwesomeIcon icon={data.icon}
-                           className=' text-black md:text-white'
+                           className=' text-black md:text-white  nav-icon'
                            style={{ fontSize: '1.3rem' }}
                         />
-                     </motion.div>
+                     </div>
                   </NavLink>;
                })
             }
