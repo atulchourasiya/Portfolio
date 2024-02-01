@@ -21,7 +21,6 @@ const Navbar = () => {
                      }}>
                         <FontAwesomeIcon icon={data.icon}
                            className=' text-black md:text-white  nav-icon'
-                           style={{ fontSize: '1.3rem' }}
                         />
                      </div>
                   </NavLink>;

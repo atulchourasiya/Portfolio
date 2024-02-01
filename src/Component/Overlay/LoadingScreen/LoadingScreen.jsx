@@ -18,18 +18,6 @@ const LoadingScreen = () => {
 
    const scene = useRef();
 
-   const goFullScreen = () => {
-      const element = document.documentElement;
-      if (element.requestFullscreen) {
-         element.requestFullscreen();
-      } else if (element.mozRequestFullScreen) {
-         element.mozRequestFullScreen();
-      } else if (element.webkitRequestFullscreen) {
-         element.webkitRequestFullscreen();
-      } else if (element.msRequestFullscreen) {
-         element.msRequestFullscreen();
-      }
-   };
 
    const generateStars = () => {
       const star = document.createElement('span');
@@ -71,11 +59,7 @@ const LoadingScreen = () => {
                   }} variant="determinate" value={progress} />
                </> :
                   <div className='flex justify-center' onClick={() => {
-                     goFullScreen();
                      setLoading(false);
-                     audio.volume = 0.1;
-                     audio.loop = true;
-                     audio.play();
                      navigate('/');
                   }}>
                      <Button icon={faDoorOpen} text={'ENTER'}></Button>
