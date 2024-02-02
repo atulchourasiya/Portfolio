@@ -26,7 +26,7 @@ export default function BackgroundCanvas() {
          <Suspense fallback={null}>
             {/* <CameraRig > */}
                <Stars />
-               <ShootingStar />
+               {/* <ShootingStar /> */}
                <ComputerModel />
                <BackgroundText />
                <Planets />
