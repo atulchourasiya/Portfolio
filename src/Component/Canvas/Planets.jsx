@@ -11,7 +11,7 @@ const Planets = () => {
       {
          decalTexture: '/reactTexture.png',
          planetTexture: '/reactPlanet.jpg',
-         position: [-(width/2) + 6, 20, -40]
+         position: [-(width/2) + 3, 20, -40]
       },
       {
          decalTexture: '/javascriptTexture.png',
@@ -57,7 +57,7 @@ const Planet = ({ decalTexture, planetTexture, position }) => {
                polygonOffsetFactor={-5}
                flatShading
                color={
-                  [1.2, 1.2, 1.2]
+                  [1.1, 1.1, 1.1]
                } 
                toneMapped={false}
             />
