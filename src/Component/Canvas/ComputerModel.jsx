@@ -15,13 +15,13 @@ const ComputerModel = (props) => {
       <group ref={groupRef} position={[0, .5, 0]}  {...props} dispose={null} >
         <spotLight
           intensity={500}
-          decay={1.3}
+          decay={1.6}
           color="#4C81F2"
           position={[0, 40, 0]}
         />
         <spotLight
           intensity={500}
-          decay={1.3}
+          decay={1.6}
           color="#9C2CD5"
           position={[0, 40, 0]}
         />

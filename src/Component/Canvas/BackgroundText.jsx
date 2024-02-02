@@ -7,7 +7,7 @@ const BackgroundText = () => {
    const { heading } = useContext(HeadingContext);
    const scalingFactor = Math.min(Math.max(window.innerWidth / 1280, .4), 1);
    return (
-      <Center position={[0,window.innerWidth > 768 ? 20 :14,-30]}>
+      <Center position={[0,window.innerWidth > 768 ? 20 :14,-25]}>
          <Text3D
             size={13}
             letterSpacing={.5}
@@ -17,6 +17,7 @@ const BackgroundText = () => {
             {heading}
             <MeshReflectorMaterial
                blur={[300, 30]}
+               color={[1.1,1.1,1.1]}
                resolution={2048}
                mixBlur={0.6}
                mixStrength={5}

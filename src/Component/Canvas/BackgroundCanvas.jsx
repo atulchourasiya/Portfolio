@@ -8,8 +8,7 @@ import { useRef, useEffect, Suspense } from 'react';
 import { easing } from 'maath';
 import { useThree } from 'react-three-fiber';
 import Planets from './Planets';
-
-
+import { Perf } from 'r3f-perf';
 export default function BackgroundCanvas() {
    return (
       <Canvas className='!h-dvh' shadows dpr={[1, 1.5]} camera={{ position: [-1.5, 1, 5.5], fov: 45, near: 80, far: 100 }} eventSource={document.getElementById('root')} eventPrefix="client">
@@ -23,10 +22,11 @@ export default function BackgroundCanvas() {
          />
          <color attach="background" args={['#000']} />
          <fog attach="fog" args={['black', 140, 170]} />
+         {/* <Perf openByDefault trackGPU={true} position={'top-right'} /> */}
          <Suspense fallback={null}>
             {/* <CameraRig > */}
                <Stars />
-               {/* <ShootingStar /> */}
+               <ShootingStar />
                <ComputerModel />
                <BackgroundText />
                <Planets />
@@ -37,6 +37,8 @@ export default function BackgroundCanvas() {
             enablePan={false}
             maxPolarAngle={Math.PI / 2 - 0.3}
             minPolarAngle={Math.PI / 2 - 0.3}
+            minAzimuthAngle={-Math.PI / 4}  // Limit to 45 degrees to the left
+            maxAzimuthAngle={Math.PI / 4 } // Limit to 45 degrees to the right
             enableDamping={true}
             // enableRotate={false}
          />
