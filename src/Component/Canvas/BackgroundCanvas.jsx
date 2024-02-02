@@ -7,6 +7,7 @@ import BackgroundText from './BackgroundText';
 import { useRef, useEffect, Suspense } from 'react';
 import { easing } from 'maath';
 import { useThree } from 'react-three-fiber';
+import Planets from './Planets';
 
 
 export default function BackgroundCanvas() {
@@ -24,10 +25,11 @@ export default function BackgroundCanvas() {
          <fog attach="fog" args={['black', 140, 170]} />
          <Suspense fallback={null}>
             <CameraRig >
-               {/* <Stars />
+               <Stars />
                <ShootingStar />
                <ComputerModel />
-               <BackgroundText /> */}
+               <BackgroundText />
+               <Planets />
             </CameraRig>
          </Suspense>
          <OrbitControls

@@ -1,47 +1,39 @@
 import { useRef } from 'react';
 import { Decal, Float, useTexture } from '@react-three/drei';
-import { useThree } from '@react-three/fiber';
-import { generatePlanetPosition } from '../Utility/generatePlanetPosition';
 
 const Planets = () => {
-   const { viewport } = useThree();
-   const { width, height } = viewport;
    const planetArray = [
       {
          decalTexture: '/reactTexture.png',
          planetTexture: '/reactPlanet.jpg',
-         position: generatePlanetPosition(width, height, .8, 6, 55),
       },
       {
          decalTexture: '/javascriptTexture.png',
          planetTexture: '/javascriptPlanet.jpg',
-         position: generatePlanetPosition(width, height, .1, 30, 55),
       },
    ];
    return planetArray.map((planet, index) => {
       return <Planet
          key={index}
-         planetProps={{
-            planetTexture: planet.planetTexture,
-            decalTexture: planet.decalTexture,
-            position: planet.position
-         }}
+         decalTexture={planet.decalTexture}
+         planetTexture={planet.planetTexture}
       />;
    });
 
+
 };
 
-const Planet = ({ planetProps }) => {
-   const [decal] = useTexture([planetProps.decalTexture]);
-   const [planetTexture] = useTexture([planetProps.planetTexture]);
+const Planet = ({ decalTexture, planetTexture }) => {
+   const [decal] = useTexture([decalTexture]);
+   const [planet] = useTexture([planetTexture]);
    const planetRef = useRef();
    const decalRef = useRef();
    return (
-      <Float speed={1.75} rotationIntensity={1.5} floatIntensity={2.5} position={planetProps.position}>
-         <mesh ref={planetRef} castShadow receiveShadow scale={8}>
+      <Float speed={1.75} rotationIntensity={1.5} floatIntensity={2.5} position={[0, 0, 0]}>
+         <mesh ref={planetRef} castShadow receiveShadow scale={6}>
             <sphereGeometry args={[1, 20, 20]} />
             <meshStandardMaterial
-               map={planetTexture}
+               map={planet}
                polygonOffset
                polygonOffsetFactor={-5}
                flatShading

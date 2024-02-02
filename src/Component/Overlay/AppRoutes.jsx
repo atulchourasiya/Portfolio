@@ -7,6 +7,7 @@ import Options from "./Options/Options";
 import About from "./About/About";
 import { LoadingContext } from "../Context/LoadingState";
 import LoadingScreen from "./LoadingScreen/LoadingScreen";
+import Skills from "./Skills/Skills";
 
 const AppRoutes = () => {
   const { loading } = useContext(LoadingContext);
@@ -18,6 +19,7 @@ const AppRoutes = () => {
         <Routes>
           <Route path='/' exact />
           <Route path='/about' exact element={<About />} />
+          <Route path='/skill' exact element={<Skills />} />
           <Route path='/project' exact element={<Project />} />
           <Route path='/contact' exact element={<Contact />} />
         </Routes>

@@ -17,7 +17,7 @@ const Contact = () => {
           <TextField className='!my-2' id="filled-basic" type='text' label="Name" variant="standard" />
           <TextField className='!my-2' id="filled-basic" type='email' label="E-mail " variant="standard" />
           <TextField className='!my-2' id="filled-basic" type='text' label="Subject" variant="standard" />
-          <TextField className='!my-2' id="filled-multiline-flexible" label="Message" multiline maxRows={6} variant="standard" />
+          <TextField className='!my-2' id="filled-multiline-flexible" label="Message" multiline maxRows={3} variant="standard" />
           <div className="flex justify-end">
             <Buttom icon={faPaperPlane} />
           </div>
