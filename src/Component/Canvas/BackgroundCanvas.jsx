@@ -24,13 +24,13 @@ export default function BackgroundCanvas() {
          <color attach="background" args={['#000']} />
          <fog attach="fog" args={['black', 140, 170]} />
          <Suspense fallback={null}>
-            <CameraRig >
+            {/* <CameraRig > */}
                <Stars />
                <ShootingStar />
                <ComputerModel />
                <BackgroundText />
                <Planets />
-            </CameraRig>
+            {/* </CameraRig> */}
          </Suspense>
          <OrbitControls
             enableZoom={false}
@@ -38,7 +38,7 @@ export default function BackgroundCanvas() {
             maxPolarAngle={Math.PI / 2 - 0.3}
             minPolarAngle={Math.PI / 2 - 0.3}
             enableDamping={true}
-            enableRotate={false}
+            // enableRotate={false}
          />
          <Preload all />
          <BakeShadows />
@@ -50,53 +50,51 @@ export default function BackgroundCanvas() {
 }
 
 
-function CameraRig({ children }) {
-   const groupRef = useRef();
-   const pointer = useRef({ x: 0, y: 0 });
-   const { camera } = useThree();
+// function CameraRig({ children }) {
+//    const groupRef = useRef();
+//    const pointer = useRef({ x: 0, y: 0 });
 
 
-   useEffect(() => {
-      document.addEventListener('mousemove', handleMouseMove);
-      document.addEventListener('mouseout', handleMouseOut);
-      return () => {
-         document.removeEventListener('mousemove', handleMouseMove);
-         document.removeEventListener('mouseout', handleMouseOut);
-      };
-   }, []);
+//    useEffect(() => {
+//       document.addEventListener('mousemove', handleMouseMove);
+//       document.addEventListener('mouseout', handleMouseOut);
+//       return () => {
+//          document.removeEventListener('mousemove', handleMouseMove);
+//          document.removeEventListener('mouseout', handleMouseOut);
+//       };
+//    }, []);
 
-   const handleMouseMove = (event) => {
-      const canvas = document.querySelector('canvas');
-      const canvasRect = canvas.getBoundingClientRect();
+//    const handleMouseMove = (event) => {
+//       const canvas = document.querySelector('canvas');
+//       const canvasRect = canvas.getBoundingClientRect();
 
-      const mouseX = event.clientX - canvasRect.left;
-      const mouseY = event.clientY - canvasRect.top;
+//       const mouseX = event.clientX - canvasRect.left;
+//       const mouseY = event.clientY - canvasRect.top;
 
-      pointer.current = {
-         x: (mouseX / canvasRect.width) * 2 - 1,
-         y: -(mouseY / canvasRect.height) * 2 + 1,
-      };
-   };
+//       pointer.current = {
+//          x: (mouseX / canvasRect.width) * 2 - 1,
+//          y: -(mouseY / canvasRect.height) * 2 + 1,
+//       };
+//    };
 
-   const handleMouseOut = () => {
-      pointer.current.x = 0;
-      pointer.current.y = 0;
-   };
+//    const handleMouseOut = () => {
+//       pointer.current.x = 0;
+//       pointer.current.y = 0;
+//    };
 
-   useFrame((state, delta) => {
-      easing.dampE(
-         groupRef.current.rotation,
-         [0, pointer.current.x / 4, 0],
-         0.35,
-         delta
-      );
-      if (window.matchMedia('(pointer: coarse)').matches && pointer.current.x > 0) {
-         pointer.current.x -= .05;
-      } else if (window.matchMedia('(pointer: coarse)').matches && pointer.current.x < 0) {
-         pointer.current.x += .05;
-      }
-      camera.lookAt(0, 0, 0);
-   });
+//    useFrame((state, delta) => {
+//       easing.dampE(
+//          groupRef.current.rotation,
+//          [0, pointer.current.x / 4, 0],
+//          0.35,
+//          delta
+//       );
+//       if (window.matchMedia('(pointer: coarse)').matches && pointer.current.x > 0) {
+//          pointer.current.x -= .05;
+//       } else if (window.matchMedia('(pointer: coarse)').matches && pointer.current.x < 0) {
+//          pointer.current.x += .05;
+//       }
+//    });
 
-   return <group ref={groupRef}>{children}</group>;
-}
+//    return <group ref={groupRef}>{children}</group>;
+// }
