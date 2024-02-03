@@ -8,6 +8,7 @@ export const BackgroundMusicState = ({ children }) => {
   const [isMute, setIsMute] = useState(true);
   backgroundMusic.volume = 0.1;
   backgroundMusic.loop = true;
+  soundEffect.volume = 1;
   const playSoundEffect = () => {
     if (!isMute) soundEffect.play();
   };

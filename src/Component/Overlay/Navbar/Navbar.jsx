@@ -4,8 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink } from 'react-router-dom';
 import { HeadingContext } from '../../Context/HeadingState';
 import { useContext } from 'react';
-const audio = new Audio('/soundeffect.mp3');
+import { BackgroundMusicContext } from '../../Context/BackgroundMusicState';
+
 const Navbar = () => {
+   const { playSoundEffect } = useContext(BackgroundMusicContext);
    const { setHeading } = useContext(HeadingContext);
    return (
       <div className="w-full flex justify-center" style={{
@@ -17,7 +19,7 @@ const Navbar = () => {
                   return <NavLink to={data.link} key={data.id}>
                      <div className='flex flex-col justify-center items-center nav-icon' onClick={() => {
                         setHeading(data.heading);
-                        audio.play();
+                        playSoundEffect();
                      }}>
                         <FontAwesomeIcon icon={data.icon}
                            className=' text-black md:text-white  nav-icon'

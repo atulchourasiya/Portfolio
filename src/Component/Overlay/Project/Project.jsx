@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ProjectCard from './ProjectCard';
 import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -9,16 +9,17 @@ import "swiper/css/navigation";
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 import { ProjectData } from './ProjectData';
 import AnimatedFadeIn from '../../Animation/AnimatedFadeIn';
-const audio = new Audio('/soundeffect.mp3');
+import { BackgroundMusicContext } from '../../Context/BackgroundMusicState';
 
 const Project = () => {
+  const { playSoundEffect } = useContext(BackgroundMusicContext);
   return (
     <AnimatedFadeIn>
       <div className='flex justify-center items-center  h-[calc(100%-52.7px)] md:h-full  m-0 md:mx-16'>
         <Swiper
           effect={'coverflow'}
           centeredSlides={true}
-          onSlideChangeTransitionStart={() => audio.play()}
+          onSlideChangeTransitionStart={playSoundEffect}
           grabCursor={true}
           slidesPerView={'auto'}
           coverflowEffect={{

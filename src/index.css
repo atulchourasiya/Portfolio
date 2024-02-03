@@ -46,7 +46,7 @@
 	transition: transform 0.2s ease-in-out;
 	font-size: 1.3rem;
 }
-@media (pointer: coarse) {
+@media  (pointer: fine) {
 	.nav-icon:hover {
 		transform: scale(1.1);
 	}

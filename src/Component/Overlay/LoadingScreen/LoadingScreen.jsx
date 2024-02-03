@@ -6,7 +6,6 @@ import { Typography } from '@mui/material';
 import Button from '../Shared/CustomizedButton';
 import { LoadingContext } from '../../Context/LoadingState';
 import { useContext } from 'react';
-const audio = new Audio('/catbgaudio.mp3');
 import { useNavigate } from 'react-router-dom';
 import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import AnimatedText from '../../Animation/AnimatedText';
