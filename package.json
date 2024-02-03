@@ -27,6 +27,7 @@
     "r3f-perf": "^7.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-parallax-tilt": "^1.7.209",
     "react-router-dom": "^6.21.3",
     "react-three-fiber": "^6.0.13",
     "swiper": "^11.0.5",

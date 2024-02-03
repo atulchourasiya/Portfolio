@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 const AnimatedText = ({ text }) => {
    const textArray = text.split('');
-   console.log(textArray);
    return (
       textArray.map((el, i) => {
          if (el === ' ') {

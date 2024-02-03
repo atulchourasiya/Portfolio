@@ -37,8 +37,8 @@ export default function BackgroundCanvas() {
             enablePan={false}
             maxPolarAngle={Math.PI / 2 - 0.3}
             minPolarAngle={Math.PI / 2 - 0.3}
-            minAzimuthAngle={-Math.PI / 4}  // Limit to 45 degrees to the left
-            maxAzimuthAngle={Math.PI / 4 } // Limit to 45 degrees to the right
+            minAzimuthAngle={window.innerWidth > 768 ? (-Math.PI / 4) : (-Math.PI / 8)}  // Limit to 45 degrees to the left
+            maxAzimuthAngle={window.innerWidth > 768 ? Math.PI / 4 : Math.PI / 8 } // Limit to 45 degrees to the right
             enableDamping={true}
             // enableRotate={false}
          />

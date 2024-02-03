@@ -14,8 +14,8 @@ const AppRoutes = () => {
   return (
     <HashRouter>
       {
-        // loading ?
-        //    <LoadingScreen />:
+        loading ?
+           <LoadingScreen />:
         <Routes>
           <Route path='/' exact />
           <Route path='/about' exact element={<About />} />
