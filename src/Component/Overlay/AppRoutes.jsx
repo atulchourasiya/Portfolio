@@ -8,7 +8,7 @@ import About from "./About/About";
 import { LoadingContext } from "../Context/LoadingState";
 import LoadingScreen from "./LoadingScreen/LoadingScreen";
 import Skills from "./Skills/Skills";
-
+import Social from "./Social/Social";
 const AppRoutes = () => {
   const { loading } = useContext(LoadingContext);
   return (
@@ -25,6 +25,7 @@ const AppRoutes = () => {
         </Routes>
       }
       <Navbar />
+      <Social />
       <Options />
     </HashRouter>
   );

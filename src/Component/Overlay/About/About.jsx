@@ -7,7 +7,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { Skeleton } from '@mui/material';
 
 const About = () => {
-   const resume = '/me.jpeg'
+  const resume = '/AtulChourasiyaResume.pdf'
    const [isLoaded, setIsLoaded] = React.useState(false);
    const handleImageLoad = () => {
       setIsLoaded(true);

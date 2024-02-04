@@ -4,6 +4,8 @@ import { HeadingState } from "./Context/HeadingState";
 import { LoadingState } from "./Context/LoadingState";
 import { BackgroundMusicState } from "./Context/BackgroundMusicState";
 import Overlay from "./Overlay/Overlay";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -18,6 +20,15 @@ function App() {
           </BackgroundMusicState>
         </LoadingState>
       </HeadingState>
+      <ToastContainer 
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }
