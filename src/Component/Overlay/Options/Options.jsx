@@ -1,27 +1,44 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { faCompress, faExpand } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BackgroundMusicContext } from "../../Context/BackgroundMusicState";
 
 const Options = () => {
   const { isMute, setIsMute } = useContext(BackgroundMusicContext);
-  const [isFullScreen, setIsFullScreen] = useState(false);
-  const goFullScreen = () => {
-    const element = document.documentElement;
-    if (element.requestFullscreen) {
-      element.requestFullscreen();
-      setIsFullScreen(true);
-    } else if (element.mozRequestFullScreen) {
-      element.mozRequestFullScreen();
-      setIsFullScreen(true);
-    } else if (element.webkitRequestFullscreen) {
-      element.webkitRequestFullscreen();
-      setIsFullScreen(true);
-    } else if (element.msRequestFullscreen) {
-      element.msRequestFullscreen();
-      setIsFullScreen(true);
+  const [isFullScreen, setFullScreen] = useState(false);
+
+  function isDocumentInFullScreenMode() {
+    return document.fullscreenElement !== null;
+  }
+
+  const handleFullScreen = () => {
+    if (!isDocumentInFullScreenMode()) {
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+      } else if (document.documentElement.webkitRequestFullscreen) {
+        document.documentElement.webkitRequestFullscreen();
+      } else if (document.documentElement.mozRequestFullScreen) {
+        document.documentElement.mozRequestFullScreen();
+      } else if (document.documentElement.msRequestFullscreen) {
+        document.documentElement.msRequestFullscreen();
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
     }
   };
+  useEffect(()=>{
+    document.addEventListener('fullscreenchange',()=>{
+      setFullScreen(isDocumentInFullScreenMode())
+     }) 
+  },[])
   return (
     <div className='absolute top-0 right-0 flex p-4'>
       <div
@@ -44,7 +61,7 @@ const Options = () => {
             }`}
           style={{ animationDelay: ".9s" }}></span>
       </div>
-      <div onClick={goFullScreen}>
+      <div className=" cursor-pointer" onClick={handleFullScreen}>
         <FontAwesomeIcon
           icon={isFullScreen? faCompress : faExpand}
           className='text-white nav-icon'></FontAwesomeIcon>
