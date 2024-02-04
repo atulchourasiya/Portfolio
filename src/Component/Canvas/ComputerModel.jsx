@@ -1,15 +1,18 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { useGLTF, Center, MeshReflectorMaterial } from "@react-three/drei";
 import { useFrame } from "react-three-fiber";
+import { DissolveMaterial } from "./DissolveMaterial";
+import { ModelContext } from "../Context/ModelState";
 
 const ComputerModel = (props) => {
   const { nodes, materials } = useGLTF("/ComputerModel.glb");
   const groupRef = useRef();
+  const { visible } = useContext(ModelContext);
   useFrame(() => {
-    const scalingFactor = Math.min(Math.max(window.innerWidth / 768 , .5),1);
+    const scalingFactor = Math.min(Math.max(window.innerWidth / 768, .5), 1);
     groupRef.current.scale.set(scalingFactor, scalingFactor, scalingFactor);
   });
- 
+
   return (
     <Center>
       <group ref={groupRef} position={[0, .5, 0]}  {...props} dispose={null} >
@@ -31,158 +34,314 @@ const ComputerModel = (props) => {
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008.geometry}
-            material={materials["DESK-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["DESK-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_1.geometry}
-            material={materials["CHAIR-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["CHAIR-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_2.geometry}
-            material={materials["WHEEL-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["WHEEL-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_3.geometry}
-            material={materials["WHEEL-CAP-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["WHEEL-CAP-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_4.geometry}
-            material={materials["WHEEL-NUT-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["WHEEL-NUT-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_5.geometry}
-            material={materials["CHAIR-LEGS-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["CHAIR-LEGS-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_6.geometry}
-            material={materials["CHAIR-COVER-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["CHAIR-COVER-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_7.geometry}
-            material={materials["COMPUTER-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["COMPUTER-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_8.geometry}
-            material={materials["1COMPUTER-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["1COMPUTER-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_9.geometry}
-            material={materials["SCREEN-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["SCREEN-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_10.geometry}
-            material={materials["3PIC-0.003"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["3PIC-0.003"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_11.geometry}
-            material={materials["3PIC-0.001"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["3PIC-0.001"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_12.geometry}
-            material={materials["3PIC-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["3PIC-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_13.geometry}
-            material={materials["BASS-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["BASS-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_14.geometry}
-            material={materials["SPEAKER-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["SPEAKER-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_15.geometry}
-            material={materials["2KB-0.001"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["2KB-0.001"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_16.geometry}
-            material={materials["1KB-BASE-0.001"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["1KB-BASE-0.001"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_17.geometry}
-            material={materials["1KEYS-0.001"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["1KEYS-0.001"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_18.geometry}
-            material={materials["MOUSE-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["MOUSE-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_19.geometry}
-            material={materials["MOUSEPAD-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["MOUSEPAD-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_20.geometry}
-            material={materials["LAPTOP-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["LAPTOP-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_21.geometry}
-            material={materials["1KB-BASE-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["1KB-BASE-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_22.geometry}
-            material={materials["1KEYS-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["1KEYS-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_23.geometry}
-            material={materials["SCREEN-0.002"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["SCREEN-0.002"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_24.geometry}
-            material={materials["SIGN-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["SIGN-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Roundcube008_25.geometry}
-            material={materials["TAG-0"]}
-          />
+          >
+            <DissolveMaterial
+              visible={visible}
+              baseMaterial={materials["TAG-0"]}
+              color="#00FFFF"
+            />
+
+          </mesh>
         </group>
         <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
           <planeGeometry args={[200, 200]} />

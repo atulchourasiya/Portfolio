@@ -9,10 +9,12 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import AnimatedText from '../../Animation/AnimatedText';
+import { ModelContext } from '../../Context/ModelState';
 
 const LoadingScreen = () => {
    const { progress } = useProgress();
    const { setLoading } = useContext(LoadingContext);
+   const { setVisible } = useContext(ModelContext);
    const navigate = useNavigate();
 
    const scene = useRef();
@@ -59,6 +61,7 @@ const LoadingScreen = () => {
                </> :
                   <div className='flex justify-center' onClick={() => {
                      setLoading(false);
+                     setVisible(true);
                      navigate('/');
                   }}>
                      <Button icon={faDoorOpen} text={'ENTER'}></Button>
