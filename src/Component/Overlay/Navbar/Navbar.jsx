@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { HeadingContext } from '../../Context/HeadingState';
 import { useContext } from 'react';
 import { BackgroundMusicContext } from '../../Context/BackgroundMusicState';
+import Tooltip from '@mui/material/Tooltip';
 
 const Navbar = () => {
    const { playSoundEffect } = useContext(BackgroundMusicContext);
@@ -17,14 +18,17 @@ const Navbar = () => {
             {
                NavbarData.map((data) => {
                   return <NavLink to={data.link} key={data.id}>
-                     <div className='flex flex-col justify-center items-center nav-icon' onClick={() => {
-                        setHeading(data.heading);
-                        playSoundEffect();
-                     }}>
-                        <FontAwesomeIcon icon={data.icon}
-                           className=' text-black md:text-white  nav-icon'
-                        />
-                     </div>
+                     <Tooltip title={data.title} >
+                        <div className='flex flex-col justify-center items-center nav-icon' onClick={() => {
+                           setHeading(data.heading);
+                           playSoundEffect();
+                        }}>
+                           <FontAwesomeIcon icon={data.icon}
+                              className=' text-black md:text-white  nav-icon'
+                           />
+                           <p className='text-[.5rem] text-black md:text-white  font-lato'>{data.title}</p>
+                        </div>
+                     </Tooltip>
                   </NavLink>;
                })
             }

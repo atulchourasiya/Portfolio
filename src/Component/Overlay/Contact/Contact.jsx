@@ -7,6 +7,7 @@ import AnimatedFadeIn from '../../Animation/AnimatedFadeIn';
 import emailjs from '@emailjs/browser';
 import { toast } from 'react-toastify';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Tooltip } from '@mui/material';
 const Contact = () => {
   const form = useRef();
   const [formData, setFormData] = useState({
@@ -64,9 +65,11 @@ const Contact = () => {
           <ThemeProvider theme={theme}>
             <TextField required className='!my-2' id="filled-multiline-basic" label="Message" multiline maxRows={3} name='message' variant="standard" value={formData.message} onInput={handleChange} />
           </ThemeProvider>
-          <button type='submit' disabled={loading} className="flex justify-end">
-            <Button icon={faPaperPlane} />
-          </button>
+          <Tooltip title='Send Message' >
+            <button type='submit' disabled={loading} className="flex justify-end">
+              <Button icon={faPaperPlane} />
+            </button>
+          </Tooltip>
         </Box>
       </div>
     </AnimatedFadeIn>

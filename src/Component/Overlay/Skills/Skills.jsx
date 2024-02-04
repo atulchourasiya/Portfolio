@@ -10,7 +10,7 @@ const Skills = () => {
             <div className='grid grid-cols-3 gap-3 md:grid-cols-5 md:gap-3 px-4 md:px-20'>
                {
                   SkillArray.map((data) => {
-                     return <SkillCard key={data.id} image={data.image} />;
+                     return <SkillCard key={data.id} image={data.image} title={data.title} />;
                   })
                }
             </div>

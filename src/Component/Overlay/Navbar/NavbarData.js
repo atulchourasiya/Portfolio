@@ -20,14 +20,14 @@ export const NavbarData = [
       id : 3,
       title : 'Skills',
       icon : faScrewdriverWrench,
-      link :'/skill',
+      link :'/skills',
       heading: 'SKILLS',
    },
    {
       id : 4,
-      title : 'Project',
+      title : 'Projects',
       icon : faHive,
-      link :'/project',
+      link :'/projects',
       heading: 'PROJECTS',
    },
    {

@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import BackgroundCanvas from "./Canvas/BackgroundCanvas";
 import { HeadingState } from "./Context/HeadingState";
 import { LoadingState } from "./Context/LoadingState";

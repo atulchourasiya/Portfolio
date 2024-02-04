@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import LinearProgress from '@mui/material/LinearProgress';
 import Box from '@mui/material/Box';
 import { useProgress } from '@react-three/drei';
-import { Typography } from '@mui/material';
+import { Tooltip, Typography } from '@mui/material';
 import Button from '../Shared/CustomizedButton';
 import { LoadingContext } from '../../Context/LoadingState';
 import { useContext } from 'react';
@@ -11,7 +11,7 @@ import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import AnimatedText from '../../Animation/AnimatedText';
 import { ModelContext } from '../../Context/ModelState';
 import { BackgroundMusicContext } from '../../Context/BackgroundMusicState';
-BackgroundMusicContext
+BackgroundMusicContext;
 const LoadingScreen = () => {
    const { progress } = useProgress();
    const { setLoading } = useContext(LoadingContext);
@@ -61,14 +61,16 @@ const LoadingScreen = () => {
                      },
                   }} variant="determinate" value={progress} />
                </> :
-                  <div className='flex justify-center' onClick={() => {
-                     setLoading(false);
-                     setVisible(true);
-                     setIsMute(false);
-                     navigate('/');
-                  }}>
-                     <Button icon={faDoorOpen} text={'ENTER'}></Button>
-                  </div>
+                  <Tooltip title={progress != 100 ? 'Loading' : 'Enter'} >
+                     <div className='flex justify-center' onClick={() => {
+                        setLoading(false);
+                        setVisible(true);
+                        setIsMute(false);
+                        navigate('/');
+                     }}>
+                        <Button icon={faDoorOpen} text={'ENTER'}></Button>
+                     </div>
+                  </Tooltip>
                }
             </Box>
          </div>

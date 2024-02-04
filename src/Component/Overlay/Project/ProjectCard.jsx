@@ -8,6 +8,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Button from '../Shared/CustomizedButton';
 import Skeleton from '@mui/material/Skeleton';
+import { Tooltip } from '@mui/material';
 
 const ProjectCard = ({ title, desc, image, githubLink, liveLink }) => {
 	const [isLoaded, setIsLoaded] = React.useState(false);
@@ -27,12 +28,16 @@ const ProjectCard = ({ title, desc, image, githubLink, liveLink }) => {
 					</Typography>
 				</CardContent>
 				<CardActions sx={{ display: 'flex', justifyContent: 'end' }}>
+					<Tooltip title='Source Code' >
 					<a href={githubLink} target='_blank' rel='noreferrer'>
 						<Button icon={faGithub} />
 					</a>
+					</Tooltip>
+					<Tooltip title='Live Link' >
 					<a href={liveLink} target='_blank' rel='noreferrer'>
 						<Button icon={faLink} />
 					</a>
+					</Tooltip>
 				</CardActions>
 			</Card>
 	);
