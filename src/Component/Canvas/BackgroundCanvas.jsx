@@ -7,7 +7,6 @@ import BackgroundText from './BackgroundText';
 import { useRef, useEffect, Suspense, useState } from 'react';
 import { easing } from 'maath';
 import Planets from './Planets';
-import { Perf } from 'r3f-perf';
 
 export default function BackgroundCanvas() {
    return (
@@ -22,7 +21,6 @@ export default function BackgroundCanvas() {
          />
          <color attach="background" args={['#000']} />
          <fog attach="fog" args={['black', 140, 170]} />
-         {/* <Perf openByDefault trackGPU={true} position={'top-right'} /> */}
          <Suspense fallback={null}>
             {
                window.matchMedia('(pointer: fine)').matches ?

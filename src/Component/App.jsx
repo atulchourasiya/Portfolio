@@ -6,8 +6,18 @@ import { ModelState } from "./Context/ModelState";
 import Overlay from "./Overlay/Overlay";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useEffect } from "react";
 
 function App() {
+  const handleContextMenu = (e) => {
+    e.preventDefault();
+  };
+  useEffect(() => {
+    document.addEventListener('contextmenu', handleContextMenu);
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu);
+    };
+  }, []);
   return (
     <>
       <HeadingState>
