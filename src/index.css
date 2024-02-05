@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+	min-height: 100vh;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	user-select: none;
+}
+
+.swiper-pagination-fraction,
+.swiper-button-prev:after,
+.swiper-button-next:after {
+	color: rgb(255, 255, 255) !important;
+	text-shadow: 2px 2px 4px #000000;
+	position: relative;
+	top: 5px;
+}
+
+.font-lato {
+	font-family: 'Lato', sans-serif;
+}
+.opaque-image {
+	opacity: 0.9;
+}
+
+.star {
+	position: absolute;
+	background-color: aliceblue;
+	border-radius: 50%;
+}
+.nav-icon {
+	transition: transform 0.2s ease-in-out;
+	font-size: 1.3rem;
+}
+@media  (pointer: fine) {
+	.nav-icon:hover {
+		transform: scale(1.1);
+	}
+}
+.active {
+	position: relative;
+}
+.active::before {
+	position: absolute;
+	content: '';
+	left: 50%;
+	transform: translateX(-50%);
+	width: 80%;
+	height: 2px;
+	background-color: #6ff5ff;
+	bottom: -5px;
+}
+.bar-animation{
+	animation: upDown 1s ease-in-out infinite ;
+}
+@keyframes upDown {
+	from {
+		height: 0;
+	}
+	to{
+		height: -1.25rem;
+	}
+}
+@keyframes blink {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+::-webkit-scrollbar {
+	width: 14px;
+}
+::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #8a8a8a75;
+	border-radius: 1rem;
+	border: 2px solid transparent;
+	background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color: #999999;
+}
