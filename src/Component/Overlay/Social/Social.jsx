@@ -9,7 +9,7 @@ const Social = () => {
       {
         SocialData.map((data) => {
           return <a href={data.link} download={data.isDownload} target='_blank' rel='noopener noreferrer' key={data.id}>
-            <Tooltip title={data.title} >
+            <Tooltip title={data.title} placement={window.innerWidth > 768 ? 'left-start' : 'bottom'}  >
               <div className='flex mx-3 md:m-3 flex-col justify-center items-center nav-icon' >
                 <FontAwesomeIcon icon={data.icon}
                   className='text-white  nav-icon'

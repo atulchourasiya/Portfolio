@@ -18,7 +18,7 @@ const Navbar = () => {
             {
                NavbarData.map((data) => {
                   return <NavLink to={data.link} key={data.id}>
-                     <Tooltip title={data.title} >
+                     <Tooltip title={data.title} placement={window.innerWidth > 768 ? 'left-start':'top'} >
                         <div className='flex flex-col justify-center items-center nav-icon' onClick={() => {
                            setHeading(data.heading);
                            playSoundEffect();
